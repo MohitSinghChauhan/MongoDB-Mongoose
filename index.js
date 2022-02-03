@@ -55,6 +55,7 @@
         const user1 = new Details(
             {
                 name: "Albert",
+                age:20,
                 love4Coding: false
             }
         );
@@ -185,11 +186,20 @@
     // 7    ***************************************************************************   //
     // * Deletion of Documents inside collection
 
-    Details.deleteOne({name:"Mohit Chauhan"}, (err)=>{
+    // * Delete One Document at a time
+    // Details.deleteOne({name:"Mohit Chauhan"}, (err)=>{
+        //     if(err) console.log(err);
+        //     else console.log("Sucessfully Deleted");
+        // })
+        
+
+    // * Delete Many Documents at a time
+    Details.deleteMany({age:20, love4Coding:false},(err)=>{
         if(err) console.log(err);
         else console.log("Sucessfully Deleted");
-    })
+    });
 
+    
     Details.find((err,result)=>{
         if(err) console.log(err); // TODO : we can also run forEach loop for performing action on every element.
         else console.log(result);
